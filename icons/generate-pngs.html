@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate Extension Icons</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .icon-preview {
+      display: inline-block;
+      margin: 10px;
+      text-align: center;
+    }
+    canvas {
+      border: 1px solid #ccc;
+      margin: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <h1>Extension Icon Generator</h1>
+  <p>Click the buttons below to download PNG icons in different sizes.</p>
+
+  <div id="previews"></div>
+
+  <script>
+    const sizes = [16, 48, 128];
+    const previewsDiv = document.getElementById('previews');
+
+    // SVG icon data
+    const svgData = `<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128" height="128" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2980b9;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <circle cx="64" cy="64" r="60" fill="url(#grad)"/>
+  <g transform="translate(30, 25)">
+    <path d="M 10 5 L 55 50 L 50 55 L 5 10 Z" fill="#fff" opacity="0.9"/>
+    <path d="M 50 55 L 55 50 L 60 55 L 55 60 Z" fill="#34495e"/>
+    <path d="M 55 60 Q 50 70, 45 75 T 35 80" stroke="#e74c3c" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="15" cy="15" r="3" fill="#fff"/>
+    <circle cx="45" cy="15" r="2.5" fill="#fff"/>
+    <circle cx="15" cy="45" r="2.5" fill="#fff"/>
+  </g>
+</svg>`;
+
+    sizes.forEach(size => {
+      const div = document.createElement('div');
+      div.className = 'icon-preview';
+
+      const canvas = document.createElement('canvas');
+      canvas.width = size;
+      canvas.height = size;
+
+      const button = document.createElement('button');
+      button.textContent = `Download ${size}x${size}`;
+      button.onclick = () => downloadIcon(size);
+
+      const label = document.createElement('div');
+      label.textContent = `${size}x${size}`;
+
+      div.appendChild(label);
+      div.appendChild(canvas);
+      div.appendChild(button);
+      previewsDiv.appendChild(div);
+
+      renderIcon(canvas, size);
+    });
+
+    function renderIcon(canvas, size) {
+      const ctx = canvas.getContext('2d');
+      const img = new Image();
+
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0, size, size);
+      };
+
+      const blob = new Blob([svgData], { type: 'image/svg+xml' });
+      const url = URL.createObjectURL(blob);
+      img.src = url;
+    }
+
+    function downloadIcon(size) {
+      const canvas = document.createElement('canvas');
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+
+      const img = new Image();
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0, size, size);
+
+        canvas.toBlob((blob) => {
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `icon${size}.png`;
+          a.click();
+          URL.revokeObjectURL(url);
+        });
+      };
+
+      const blob = new Blob([svgData], { type: 'image/svg+xml' });
+      const url = URL.createObjectURL(blob);
+      img.src = url;
+    }
+  </script>
+</body>
+</html>

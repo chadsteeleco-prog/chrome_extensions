@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG Tracer & Creator</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>SVG Tracer & Creator</h1>
+
+    <!-- Tab Navigation -->
+    <div class="tabs">
+      <button class="tab-button active" data-tab="draw">Draw</button>
+      <button class="tab-button" data-tab="text">Text</button>
+      <button class="tab-button" data-tab="trace">Trace Image</button>
+    </div>
+
+    <!-- Draw Tab -->
+    <div id="draw-tab" class="tab-content active">
+      <div class="canvas-container">
+        <canvas id="drawCanvas" width="600" height="400"></canvas>
+      </div>
+      <div class="controls">
+        <label>
+          Stroke Width:
+          <input type="range" id="strokeWidth" min="1" max="20" value="2">
+          <span id="strokeWidthValue">2</span>px
+        </label>
+        <label>
+          Color:
+          <input type="color" id="strokeColor" value="#000000">
+        </label>
+        <button id="clearCanvas" class="btn">Clear</button>
+        <button id="downloadDrawing" class="btn btn-primary">Download SVG</button>
+      </div>
+      <div class="info">
+        <small>💡 Use mouse or pen tablet to draw</small>
+      </div>
+    </div>
+
+    <!-- Text Tab -->
+    <div id="text-tab" class="tab-content">
+      <div class="text-controls">
+        <label>
+          Enter Text:
+          <textarea id="textInput" rows="3" placeholder="Type your text here..."></textarea>
+        </label>
+        <label>
+          Font Family:
+          <select id="fontFamily">
+            <option value="Arial">Arial</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Comic Sans MS">Comic Sans MS</option>
+            <option value="Impact">Impact</option>
+            <option value="Trebuchet MS">Trebuchet MS</option>
+          </select>
+        </label>
+        <label>
+          Font Size:
+          <input type="range" id="fontSize" min="12" max="120" value="48">
+          <span id="fontSizeValue">48</span>px
+        </label>
+        <label>
+          Text Color:
+          <input type="color" id="textColor" value="#000000">
+        </label>
+        <button id="previewText" class="btn">Preview</button>
+        <button id="downloadText" class="btn btn-primary">Download SVG</button>
+      </div>
+      <div class="preview-container">
+        <div id="textPreview"></div>
+      </div>
+    </div>
+
+    <!-- Trace Image Tab -->
+    <div id="trace-tab" class="tab-content">
+      <div class="upload-controls">
+        <div class="upload-area" id="uploadArea">
+          <input type="file" id="imageInput" accept="image/*" hidden>
+          <label for="imageInput" class="upload-label">
+            <div class="upload-icon">📁</div>
+            <div>Click to upload image or drag & drop</div>
+            <small>Supports: JPG, PNG, GIF, BMP</small>
+          </label>
+        </div>
+        <div id="imagePreviewContainer" class="hidden">
+          <canvas id="imagePreview"></canvas>
+          <div class="trace-controls">
+            <label>
+              Threshold (B&W conversion):
+              <input type="range" id="threshold" min="0" max="255" value="128">
+              <span id="thresholdValue">128</span>
+            </label>
+            <button id="processImage" class="btn">Process & Trace</button>
+            <button id="downloadTrace" class="btn btn-primary" disabled>Download SVG</button>
+          </div>
+        </div>
+      </div>
+      <div id="tracedPreview" class="hidden">
+        <h3>Traced SVG Preview:</h3>
+        <div id="svgPreview"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="lib/potrace.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

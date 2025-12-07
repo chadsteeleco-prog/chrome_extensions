@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Screenshot 2 - Text Mode - 1280x800</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1280px;
+      height: 800px;
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      overflow: hidden;
+    }
+    .screenshot {
+      width: 1200px;
+      height: 750px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+    }
+    h1 {
+      font-size: 48px;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .subtitle {
+      font-size: 24px;
+      color: #7f8c8d;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .content {
+      flex: 1;
+      display: flex;
+      gap: 40px;
+    }
+    .left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .right {
+      width: 400px;
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 30px;
+    }
+    .text-preview {
+      flex: 1;
+      background: white;
+      border: 4px solid #3498db;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+    .preview-text {
+      font-size: 72px;
+      font-weight: bold;
+      color: #2c3e50;
+      text-align: center;
+    }
+    .controls-demo {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .control-item {
+      margin-bottom: 15px;
+    }
+    .control-label {
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+    .control-input {
+      width: 100%;
+      padding: 8px 12px;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .feature {
+      margin-bottom: 25px;
+    }
+    .feature h3 {
+      color: #e74c3c;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    .feature p {
+      color: #555;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .icon {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="screenshot">
+    <h1>✍️ SVG Tracer & Creator</h1>
+    <div class="subtitle">Create Beautiful Text SVGs</div>
+    <div class="content">
+      <div class="left">
+        <div class="text-preview">
+          <div class="preview-text">
+            Hello SVG!
+          </div>
+        </div>
+        <div class="controls-demo">
+          <div class="control-item">
+            <div class="control-label">Font Family: Georgia</div>
+          </div>
+          <div class="control-item">
+            <div class="control-label">Font Size: 72px</div>
+          </div>
+          <div class="control-item">
+            <div class="control-label">Color: #2c3e50</div>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="feature">
+          <div class="icon">🔤</div>
+          <h3>8 Font Choices</h3>
+          <p>Select from professional fonts for your text</p>
+        </div>
+        <div class="feature">
+          <div class="icon">📏</div>
+          <h3>Size Control</h3>
+          <p>Adjust font size from 12px to 120px</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🎨</div>
+          <h3>Full Color</h3>
+          <p>Choose any color for your text</p>
+        </div>
+        <div class="feature">
+          <div class="icon">👁️</div>
+          <h3>Live Preview</h3>
+          <p>See changes in real-time before exporting</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Screenshot 3 - Image Trace - 1280x800</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1280px;
+      height: 800px;
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      overflow: hidden;
+    }
+    .screenshot {
+      width: 1200px;
+      height: 750px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+    }
+    h1 {
+      font-size: 48px;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .subtitle {
+      font-size: 24px;
+      color: #7f8c8d;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .content {
+      flex: 1;
+      display: flex;
+      gap: 40px;
+    }
+    .left {
+      flex: 1;
+      display: flex;
+      gap: 30px;
+    }
+    .right {
+      width: 400px;
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 30px;
+    }
+    .image-box {
+      flex: 1;
+      background: white;
+      border: 4px solid #3498db;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+    .box-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .image-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f8f9fa;
+      border-radius: 8px;
+    }
+    .arrow {
+      font-size: 48px;
+      color: #3498db;
+      display: flex;
+      align-items: center;
+    }
+    .sample-image {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 50%;
+    }
+    .sample-vector svg {
+      width: 200px;
+      height: 200px;
+    }
+    .feature {
+      margin-bottom: 25px;
+    }
+    .feature h3 {
+      color: #00b894;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    .feature p {
+      color: #555;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .icon {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="screenshot">
+    <h1>🖼️ SVG Tracer & Creator</h1>
+    <div class="subtitle">Convert Images to Vector Graphics</div>
+    <div class="content">
+      <div class="left">
+        <div class="image-box">
+          <div class="box-title">Original Image</div>
+          <div class="image-content">
+            <div class="sample-image"></div>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="image-box">
+          <div class="box-title">Traced SVG</div>
+          <div class="image-content">
+            <div class="sample-vector">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="90" fill="none" stroke="#000" stroke-width="3"/>
+                <circle cx="100" cy="100" r="70" fill="none" stroke="#000" stroke-width="2"/>
+                <circle cx="100" cy="100" r="50" fill="none" stroke="#000" stroke-width="2"/>
+                <path d="M 100 10 L 100 190 M 10 100 L 190 100" stroke="#000" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="feature">
+          <div class="icon">📁</div>
+          <h3>Drag & Drop</h3>
+          <p>Easy image upload with drag and drop support</p>
+        </div>
+        <div class="feature">
+          <div class="icon">⚫⚪</div>
+          <h3>B&W Conversion</h3>
+          <p>Adjustable threshold for perfect tracing</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🔍</div>
+          <h3>Edge Detection</h3>
+          <p>Advanced algorithm traces image contours</p>
+        </div>
+        <div class="feature">
+          <div class="icon">⚡</div>
+          <h3>Optimized</h3>
+          <p>Path simplification for clean SVG output</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
